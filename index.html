@@ -57,7 +57,7 @@
 
             if (!savedUserString) {
                 // 3. IF NO USER, redirect to login page immediately
-                window.location.href = '/app design/validate.html';
+                window.location.href = '/login.html';
                 return; // Stop running the script
             }
 
@@ -69,13 +69,13 @@
                 // If data is corrupt, log out and redirect
                 console.error("Error parsing user data:", e);
                 localStorage.removeItem('studentUser');
-                window.location.href = '/app design/validate.html';
+                window.location.href = '/login.html';
             }
 
             // 5. Make the logout button work on this page too
             logoutButton.addEventListener('click', () => {
                 localStorage.removeItem('studentUser');
-                window.location.href = '/app design/validate.html';
+                window.location.href = '/login.html';
             });
         })();
     </script>
