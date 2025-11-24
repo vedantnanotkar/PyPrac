@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyPrac - Vedant Nanotkar</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvg@3.0.11/lib/umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>PyPrac</h1>
+        <div style="display: flex; gap: .5rem;">
+            <div class="pro-sec">
+                <p id="user-name"></p>
+                <div class="pro-tag">
+                    <p>PRO</p>
+                </div>
+            </div>
+            <button id="logout-button">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M10 12H20M20 12L17 9M20 12L17 15" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <article>
+        <a href="#">
+            <div class="post">
+                <p>Experiment 1</p>
+            </div>
+        </a>
+        <a href="#">
+            <div class="post">
+                <p>Experiment 2</p>
+            </div>
+        </a>
+        <a href="#">
+            <div class="post">
+                <p>Experiment 3</p>
+            </div>
+        </a>
+    </article>
+
+    <script>
+        // This script runs on the profile page
+        (function() {
+            // 1. Get DOM elements
+            const userNameEl = document.getElementById('user-name');
+            const logoutButton = document.getElementById('logout-button');
+            
+            // 2. Check for the saved user in localStorage
+            const savedUserString = localStorage.getItem('studentUser');
+
+            if (!savedUserString) {
+                // 3. IF NO USER, redirect to login page immediately
+                window.location.href = '/app design/validate.html';
+                return; // Stop running the script
+            }
+
+            // 4. IF USER EXISTS, parse the data and show it
+            try {
+                const userData = JSON.parse(savedUserString);
+                userNameEl.textContent = userData.firstName || 'Student';
+            } catch (e) {
+                // If data is corrupt, log out and redirect
+                console.error("Error parsing user data:", e);
+                localStorage.removeItem('studentUser');
+                window.location.href = '/app design/validate.html';
+            }
+
+            // 5. Make the logout button work on this page too
+            logoutButton.addEventListener('click', () => {
+                localStorage.removeItem('studentUser');
+                window.location.href = '/app design/validate.html';
+            });
+        })();
+    </script>
+</body>
+</html>

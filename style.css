@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Ubuntu", sans-serif;
+    background-color: #F9FAFB;
+}
+button {
+    cursor: pointer;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+header .pro-sec {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+header .pro-tag {
+    background: #FEE2AD;
+    padding: 3px 6px;
+    border-radius: 6px;
+    color: #322f2e;
+    font-weight: 500;
+    font-size: 1rem;
+}
+header #logout-button {
+    background: #202020;
+    border: 0;
+    border-radius: 50rem;
+    display: flex;
+    padding: 0.5rem;
+    margin: 0;
+}
+article {
+    margin: 2rem;
+}
+article a {
+    text-decoration: none;
+    color: #202020;
+}
+.post {
+    background: #fff;
+    border: 1px solid #ebebeb;
+    box-shadow: 0px 5px 5px #f1f1f1;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    transition: all .2s;
+}
+.post:hover {
+    transform: translate(0, 2px);
+    box-shadow: none;
+    background: #f3f3f3;
+}
+
+
+/* Page CSS */
+article h2 {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 1rem;
+}
+article .heading {
+    background: darkslategray;
+    color: white;
+    padding: 7px;
+    font-weight: 500;
+    border-radius: 0 0 1rem 0;
+    text-align: center;
+}
+article #filename, article #previewBtn {
+    display: none;
+}
+
+
+/* Svg Editing CSS */
+label { display:block; margin-top:10px; font-weight:600; }
+input[type="text"], select { width:100%; padding:8px; margin-top:6px; box-sizing:border-box; }
+button { margin-top:12px; padding:8px 12px; }
+#previewArea { margin-top:16px; border:1px solid #ddd; padding:12px; display:flex; gap:12px; align-items:flex-start; flex-wrap:wrap;}
+#previewArea canvas { max-width:100%; height:auto; border:1px solid #bbb; }
+.hidden { display:none; }
+.download-link { display:inline-block; margin-top:6px; padding:8px 12px; background:cornflowerblue; color:#fff; text-decoration:none; border-radius:5px; }
+.muted { color:#666; font-size:0.9em; }
+.warn { color: #8a1f1f; background: #fff1f0; padding:8px; margin-top:8px; border-radius:6px; }
+.row { display:flex; gap:10px; }
+.col { flex:1; }
+.svgpanel { display: none}
