@@ -45,7 +45,7 @@
         -->
         <div id="login-view" class="view active">
             <div class="bg-white p-8 rounded-lg shadow-lg">
-                <h1 class="text-2xl font-bold text-center mb-6">Student Portal Login</h1>
+                <h1 class="text-2xl font-bold text-center mb-6">PyPrac Login</h1>
                 <form id="login-form">
                     <div class="mb-6">
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
@@ -74,8 +74,13 @@
                 <h1 class="text-3xl font-bold mb-4">
                     Welcome, <span id="user-name" class="text-blue-600"></span>!
                 </h1>
-                <p class="text-gray-700 mb-6">You have successfully logged into your student dashboard.</p>
-                <a href="/index.html">Experiment</a>
+                <p class="text-gray-700 mb-6">You have successfully logged into your PyPrac Account.</p>
+                <a href="/PyPrac/index.html">
+                    <button class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+                        Go to Home
+                    </button>
+                </a>
+                <br>
                 <button id="logout-button"
                         class="w-full bg-gray-700 text-white py-2 px-4 rounded-lg hover:bg-gray-800 transition duration-300">
                     Logout

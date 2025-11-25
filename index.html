@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PyPrac - Vedant Nanotkar</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/PyPrac/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvg@3.0.11/lib/umd.min.js"></script>
 </head>
@@ -28,7 +28,7 @@
     </header>
 
     <article>
-        <a href="#">
+        <a href="/PyPrac/pages/exp1.html">
             <div class="post">
                 <p>Experiment 1</p>
             </div>
@@ -57,7 +57,7 @@
 
             if (!savedUserString) {
                 // 3. IF NO USER, redirect to login page immediately
-                window.location.href = '/login.html';
+                window.location.href = '/PyPrac/login.html';
                 return; // Stop running the script
             }
 
@@ -69,13 +69,13 @@
                 // If data is corrupt, log out and redirect
                 console.error("Error parsing user data:", e);
                 localStorage.removeItem('studentUser');
-                window.location.href = '/login.html';
+                window.location.href = '/PyPrac/login.html';
             }
 
             // 5. Make the logout button work on this page too
             logoutButton.addEventListener('click', () => {
                 localStorage.removeItem('studentUser');
-                window.location.href = '/login.html';
+                window.location.href = '/PyPrac/login.html';
             });
         })();
     </script>
