@@ -13,7 +13,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
 }
 header .pro-sec {
     display: flex;
@@ -37,7 +37,7 @@ header #logout-button {
     margin: 0;
 }
 article {
-    margin: 2rem;
+    margin: 1.5rem;
 }
 article a {
     text-decoration: none;
