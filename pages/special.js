@@ -9,10 +9,8 @@
     classSec: "classSec",
     classRoll: "classRoll",
     stuEmail: "email", // your SVG id for email is 'email' in exp7out.html
-    collegeName: "collegeName",
     age: "age",
-    marks_ac: "marks_ac",
-    marks_bee: "marks_bee",
+    space: " ",
   };
 
   // Read + tolerant parse of localStorage.studentUser
@@ -55,8 +53,7 @@
       stuEmail: obj.email || obj.Email || obj.stuEmail || "",
       collegeName: obj["Collage Name"] || obj.college || "",
       age: obj.Age || obj.age || "",
-      marks_ac:
-        (obj.Marks && obj.Marks.AC) || (obj.marks && obj.marks.AC) || "",
+      space: " ",
       marks_bee:
         (obj.Marks && obj.Marks.BEE) || (obj.marks && obj.marks.BEE) || "",
     };
@@ -174,13 +171,57 @@
     return cur === undefined || cur === null ? "" : cur;
   }
 
-  function renderTemplate(template, dataObj) {
-    // simple placeholder replace `${key}` or `${obj.prop}`
-    return template.replace(/\$\{([^}]+)\}/g, (m, path) => {
-      const v = getByPath(dataObj, path.trim());
-      return String(v);
-    });
+// Transform helpers
+const TRANSFORMS = {
+  upper: v => String(v).toUpperCase(),
+  lower: v => String(v).toLowerCase(),
+  len: v => String(v).length,
+  reverse: v => String(v).split("").reverse().join(""),
+
+  // NEW ADDITION TRANSFORM
+  add: (a, b) => Number(a) + Number(b) + 1,
+};
+
+// Get value from nested object path (e.g. Marks.AC)
+function getByPath(obj, path) {
+  const parts = path.split(".");
+  let cur = obj;
+  for (const p of parts) {
+    if (cur == null) return "";
+    cur = cur[p];
   }
+  return cur == null ? "" : cur;
+}
+
+// Render template supporting pipes: ${path | transform1 | transform2}
+function renderTemplate(template, dataObj) {
+  return template.replace(/\$\{([^}]+)\}/g, (full, expr) => {
+
+    // Support: add(expr1, expr2)
+    if (expr.startsWith("add(")) {
+      const inner = expr.slice(4, -1); // remove add(...)
+      const [left, right] = inner.split(",").map(s => s.trim());
+
+      const leftVal  = renderTemplate("${" + left  + "}", dataObj);
+      const rightVal = renderTemplate("${" + right + "}", dataObj);
+
+      return TRANSFORMS.add(leftVal, rightVal);
+    }
+
+    // Handle pipes: x | transform1 | transform2
+    const parts = expr.split("|").map(s => s.trim());
+    let value = getByPath(dataObj, parts[0]);
+
+    for (let i = 1; i < parts.length; i++) {
+      const t = parts[i];
+      if (TRANSFORMS[t]) value = TRANSFORMS[t](value);
+    }
+
+    return String(value);
+  });
+}
+
+
 
   // Set textContent into a document (main doc or svgDoc)
   function setTextInDoc(doc, targetId, text) {
