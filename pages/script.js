@@ -78,6 +78,5 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("fullName").textContent = localStorage.fullName;
     document.getElementById("classSec").textContent = localStorage.classSec;
     document.getElementById("classRoll").textContent = localStorage.classRoll;
-    document.getElementById("stuEmail").textContent = localStorage.stuEmail;
-
+    document.getElementById("email").textContent = localStorage.stuEmail;
 });
