@@ -49,7 +49,7 @@
       lastName: obj["Last Name"] || obj.lastName || "",
       fullName: full || obj.fullName || "",
       classSec: obj.section || obj.classSec || "",
-      classRoll: obj.rollNo || obj.roll || obj.rollNumber || "",
+      classRoll: stu.rollNum || obj.roll || obj.rollNumber || "",
       stuEmail: obj.email || obj.Email || obj.stuEmail || "",
       collegeName: obj["Collage Name"] || obj.college || "",
       age: obj.Age || obj.age || "",

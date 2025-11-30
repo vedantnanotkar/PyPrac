@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Extract other fields
     const classSec = student.section || "";
-    const classRoll = student.rollNumber || "";
+    const classRoll = student.rollNumber || student.rollNum || "";
     const stuEmail = student.email || "";
 
     // Store into unique localStorage keys
