@@ -36,6 +36,18 @@ header #logout-button {
     padding: 0.5rem;
     margin: 0;
 }
+.noti {
+    background: #FEE2AD;
+    color: #2a2929;
+    margin: 0.5rem 1.5rem;
+    padding: 0.8rem;
+    border-radius: 7px;
+}
+.noti a {
+    color: #322f2e;
+    font-weight: 600;
+    text-decoration: none;
+}
 article {
     margin: 1.5rem;
 }
